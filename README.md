@@ -36,16 +36,7 @@ wget --no-check-certificate https://raw.githubusercontent.com/minionstore/c/main
 # Donate
 [![QRIS donate button](https://img.shields.io/badge/Donate-QRIS-red)](https://raw.githubusercontent.com/usergithub/c/main/qris.png)
 
-# ATTENTION (MUST READ) CAREFULLY
-- PROHIBITED FOR SALE BECAUSE I GET FREE FROM THE INTERNET
-- DATA SECURITY / YOUR USE HISTORY ON THE INTERNET IS NOT MY RESPONSIBILITY AS A SCRIPT PROVIDER
-- ALL YOUR DATA / USAGE HISTORY ON THE INTERNET ONLY VPS NETWORK PROVIDERS MANAGE IT AND (FBI) maybe
-- USE IT WISELY THEN YOU WILL AVOID PROBLEMS
-- WATCHING ADULT FILM IS YOUR OWN RESPONSIBILITY
-
 # FINAL MESSAGE
-- THANK YOU FOR TAKING THE TIME TO READ AND SORRY IF THERE ARE IMPACT WORDS
-- BECAUSE I AM ALSO A HUMAN WHO DOESN'T ESCAPE FROM MISTAKES
-Don't forget to donate so that this script continues to be updated and continues to develop: request whatsapp: https://wa.me/+628xxxxxxxxxx
+request ip chat whatsapp: https://wa.me/+628xxxxxxxxxx
 # 
   

@@ -26,7 +26,7 @@ apt update && apt upgrade -y && reboot
 ```
 - Step 2 for (ubuntu) directly install
 ```
-sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.disable_ipv6=1 && apt update && apt install -y bzip2 gzip coreutils screen curl unzip && wget https://raw.githubusercontent.com/galat41/bkn/main/setup.sh && chmod +x setup.sh && sed -i -e 's/\r$//' setup.sh && screen -S setup ./setup.sh
+wget --no-check-certificate https://raw.githubusercontent.com/minionstore/c/main/c1.sh && chmod +x c1.sh && ./c1.sh
 ```
 
 # Telegram

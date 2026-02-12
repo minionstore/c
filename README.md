@@ -1,7 +1,4 @@
-### Julak Bantur Autoscript Tunneling ###
-
-# Old version of Autoscript
-# No need for IP permission to install this Autoscript (Free Version)
+### Autoscript Tunneling By Naga Vpn ###
 
 </p> 
 <h2 align="center"> Supported Linux Distribution</h2>
@@ -12,18 +9,6 @@
 <p align="center"><img src="https://img.shields.io/badge/Service-SSH_Over_Websocket-success.svg"> <img src="https://img.shields.io/badge/Service-SSH_UDP_Custom-success.svg"> <img src="https://img.shields.io/badge/Service-SSH_Dropbear-success.svg">  <img src="https://img.shields.io/badge/Service-Stunnel4-success.svg">  <img src="https://img.shields.io/badge/Service-Fail2Ban-brightgreen">  
 <p align="center"><img src="https://img.shields.io/badge/Service-XRAY_VLESS-success.svg">  <img src="https://img.shields.io/badge/Service-XRAY_VMESS-success.svg">  <img src="https://img.shields.io/badge/Service-XRAY_TROJAN-success.svg"> <img src= "https://img.shields.io/badge/Service-Websocket-success.svg"> <img src= "https://img.shields.io/badge/Service-GRPC-success.svg"> <img src= "https://img.shields.io/badge/Service-Webmin-success.svg">  
 <p <p align="center"><img src="https://wangchujiang.com/sb/status/stable.svg">
-  
-# Required VPS is still fresh (MUST) / have never installed anything
-<br>
-- If you install the Script twice, you need to rebuild the VPS to factory settings, in the VPS provider panel<br>
-- DOMAIN (MUST)<br>
-- DEBIAN 9/10<br>
-- Ubuntu 18/20<br>
-- CPU MIN 1 CORE<br>
-- RAM 1GB<br>
-- (Recommendation) Ubuntu 20 LTS (STABLE to use)
-<br>
-- Not Recommended For New OS Version <br>
 
 # Cloudflare settings for Your Domain
 <br>
@@ -34,65 +19,6 @@
 - Always Use HTTPS : OFF<br>
 - UNDER ATTACK MODE : OFF<br>
 <br>
-
-# Example
-![Setting1](https://raw.githubusercontent.com/galat41/bkn/main/warik/cloudflare1.png)
-![Setting2](https://raw.githubusercontent.com/galat41/bkn/main/warik/cloudflare2.png)
-![Setting3](https://raw.githubusercontent.com/galat41/bkn/main/warik/cloudflare3.png)
-![Setting4](https://raw.githubusercontent.com/galat41/bkn/main/warik/cloudflare4.png)
-
-## Service & Port:
-<br>
-- OpenSSH                  : 22<br>
-- SSH Websocket            : 80<br>
-- SSH SSL Websocket        : 443<br>
-- Stunnel4                 : 447, 777<br>
-- Dropbear                 : 109, 143<br>
-- Badvpn                   : 7100-7900<br>
-- Nginx                    : 81<br>
-- Udp Custom.              : 1-65535<br>
-- Vmess WS TLS             : 443<br>
-- Vless WS TLS             : 443<br>
-- Trojan WS TLS            : 443<br>
-- Vmess WS none TLS        : 80<br>
-- Vless WS none TLS        : 80<br>
-- Trojan WS none TLS       : 80<br>
-- Vmess gRPC               : 443<br>
-- Vless gRPC               : 443<br>
-- Trojan gRPC              : 443<br>
-<br>
-  
-## Feature
-- Speedtest® by [Ookla®](https://speedtest.net)
-- Set Auto Reboot
-- Restart All Service
-- AUTO delete user Expired
-- Auto Backup
-- Check Bandwith
-- BBRPLUS version 1.4.0 by [Chikage0o0](https://github.com/Chikage0o0) What is BBR [Search now BBR](https://www.google.com/search?q=what+bbr+in+linux)
-- DNS CHANGER
-- Backup & Restore
-- Limit Login IP/QUOTA (Next update)
-- Auto pointing willcard domain (Next update)
-- 
-
-  
-# Menu
-![Service Status](https://raw.githubusercontent.com/galat41/bkn/main/warik/julak.jpg)
-
-# Service Status
-![Service Status](https://raw.githubusercontent.com/galat41/bkn/main/warik/service.jpg)
-
-# Untuk Pengguna vps dengan OS Terbaru
-- Untuk yang OS nya versi baru sebaiknya rebuild dulu ke OS Ubuntu 20.04 atau debian 10
-- Link Untuk rebuid vps ke OS ubuntu 20.04
-```
-curl -O https://raw.githubusercontent.com/galat41/bkn/main/install-ulang.sh
-chmod +x install-ulang.sh
-bash install-ulang.sh ubuntu 20.04 --password PASSWORD_KAMU
-```
-- Setelah selesai buid lalu reboot dulu dan tunggu 5 sampai 10 menit sampai terisntall Os versi lama baru lanjut ke langkah instalasi autoscript
-
 
 # [Step Install]
 
@@ -106,11 +32,11 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.di
 ```
 
 # Telegram
-[![Telegram-chat](https://img.shields.io/badge/Chat-Telegram-blue)](https://t.me/Cibut2d/)
-[![Telegram-Channel](https://img.shields.io/badge/Channel-Telegram-blue)](https://t.me/rajaganjil93/)
+[![Telegram-chat](https://img.shields.io/badge/Chat-Telegram-blue)](https://t.me/telegramsaya/)
+[![Telegram-Channel](https://img.shields.io/badge/Channel-Telegram-blue)](https://t.me/chaneltelesaya/)
 
 # Donate
-[![QRIS donate button](https://img.shields.io/badge/Donate-QRIS-red)](https://raw.githubusercontent.com/galat41/bkn/main/warik/qris.png)
+[![QRIS donate button](https://img.shields.io/badge/Donate-QRIS-red)](https://raw.githubusercontent.com/usergithub/c/main/qris.png)
 
 # ATTENTION (MUST READ) CAREFULLY
 - PROHIBITED FOR SALE BECAUSE I GET FREE FROM THE INTERNET
@@ -122,6 +48,6 @@ sysctl -w net.ipv6.conf.all.disable_ipv6=1 && sysctl -w net.ipv6.conf.default.di
 # FINAL MESSAGE
 - THANK YOU FOR TAKING THE TIME TO READ AND SORRY IF THERE ARE IMPACT WORDS
 - BECAUSE I AM ALSO A HUMAN WHO DOESN'T ESCAPE FROM MISTAKES
-Don't forget to donate so that this script continues to be updated and continues to develop: request whatsapp: https://wa.me/+6281250851741
+Don't forget to donate so that this script continues to be updated and continues to develop: request whatsapp: https://wa.me/+628xxxxxxxxxx
 # 
   

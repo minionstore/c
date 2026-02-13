@@ -3,7 +3,11 @@
 # Dibuat oleh: Julak Bantur
 # Last Update : 2025
 ###############
-apt update
+apt install -y
+apt update -y
+apt upgrade -y
+apt install lolcat -y
+gem install lolcat
 apt install curl -y
 apt install wget -y
 apt install jq -y
@@ -1827,11 +1831,11 @@ echo -e "${c}│          ${g}PROCESS INSTALL SLOWDNS${NC}${c}                �
 lane_bawah
 insdns
 
-clear
-lane_atas
-echo -e "${c}│           ${g}PROCESS INSTALL UDP CUSTOM${NC}${c}             │${NC}"
-lane_bawah
-insudp
+#clear
+#lane_atas
+#echo -e "${c}│           ${g}PROCESS INSTALL UDP CUSTOM${NC}${c}             │${NC}"
+#lane_bawah
+#insudp
 
 clear
 lane_atas
@@ -1845,11 +1849,11 @@ echo -e "${c}│           ${g}PROCESS INSTALL MENU ........${NC}${c}           
 lane_bawah
 insmenu
 
-clear
-lane_atas
-echo -e "${c}│           ${g}PROCESS INSTALL UDP ZIVPN${NC}${c}             │${NC}"
-lane_bawah
-install_zivpn
+#clear
+#lane_atas
+#echo -e "${c}│           ${g}PROCESS INSTALL UDP ZIVPN${NC}${c}             │${NC}"
+#lane_bawah
+#install_zivpn
 }
 setup_install
 

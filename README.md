@@ -20,13 +20,13 @@
 
 # [Step Install]
 
-- Step 1 for (debian) please update first
+- Step 1
 ```
-apt update && apt upgrade -y && reboot
+apt install -y && apt update -y && apt upgrade -y && apt install lolcat -y && gem install lolcat
 ```
 - Step 2 for (ubuntu) directly install
 ```
-wget --no-check-certificate https://raw.githubusercontent.com/minionstore/c/main/c1.sh && chmod +x c1.sh && ./c1.sh
+wget https://raw.githubusercontent.com/minionstore/c/main/c1.sh && chmod +x c1.sh && ./c1.sh
 ```
 
 # Telegram

@@ -22,7 +22,7 @@
 
 - Step 1
 ```
-apt install -y && apt update -y && apt upgrade -y && apt install lolcat -y && gem install lolcat
+apt install -y && apt install wget -y && apt update -y && apt upgrade -y && apt install lolcat -y && gem install lolcat
 ```
 - Step 2 for (ubuntu) directly install
 ```

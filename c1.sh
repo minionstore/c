@@ -662,7 +662,7 @@ download_file() {
     if wget --timeout=10 --tries=3 -q -O "$dest" "$url"; then
         echo -n '.'
     else
-        echo " [FAILED]"
+        echo " [JULAKVPN]"
     fi
 }
 

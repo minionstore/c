@@ -693,37 +693,23 @@ echo "Banner /etc/julak.txt" >>/etc/ssh/sshd_config
 cat > /etc/julak.txt << END
 <p style="text-align:center">
 
-<font color="#00FFCC"><b>╔══════════════════════════════════╗</b></font>
-<font color="#00FFCC"><b>        ★★★ JULAK VPN ★★★        </b></font>
-<font color="#00FFCC"><b>╚══════════════════════════════════╝</b></font>
+<i><u><br><font color="white"> >>>CONFIG BY </font><font color ="white"></font><font color ="green"> NAGA VPN </font><font color ="white"> </><br>
 
-<font color="red"><b>क═══════क⊹⊱✦ VIP RULES ✦⊰⊹क═══════क</b></font><br>
+<b><p style="text-align:center"><font color='#800FFFF'> >>>SERVER PREMIUM<<< </font></b><br>
 
-<font color="yellow"><b>क===||  🚀 2 LOGIN DEVICE ONLY  ||===क</b></font><br>
-<font color="cyan"><b>क===||  ⛔ NO TORRENT           ||===क</b></font><br>
-<font color="magenta"><b>क===||  🛡️ NO DDOS              ||===क</b></font><br>
-<font color="#C0C0C0"><b>क===||  ⚠️ NO HACKING           ||===क</b></font><br>
-<font color="green"><b>क===||  🔒 NO MULTILOGIN        ||===क</b></font><br>
+<b><p style="text-align:center"><font color='#00FF0A'> ORDER PREMIUM </font></b><br>
+https://Wa.me/6285786766603
 
-<font color="red"><b>क═══════क⊹⊱✦ VIP ONLY ✦⊰⊹क═══════क</b></font><br><br>
 
-<font color="#FFD700"><b>👑 CONTACT VIP ADMIN 👑</b></font><br><br>
+<b><p style="text-align:center"><font color='#00FF0A'> Join Saluran WhatsApp</font></b><br>
+https://whatsapp.com/channel/0029VafUuuLB4hdUHpip9K2M
 
-<font color="yellow"><b>WhatsApp Admin</b></font><br>
-<font color="#00FFFF"><b>https://wa.me/6285166600428</b></font><br><br>
+<b><p style="text-align:center"><font color='#00FF0A'> website config gratis </font></b><br>
+https://nagavpn.blogspot.com
 
-<font color="yellow"><b>Bot Auto Order</b></font><br>
-<font color="#00FFFF"><b>https://t.me/jambanbkn_bot</b></font><br><br>
+<b><p style="text-align:center"><font color='#00FF0A'> Saluran telegram </font></b><br>
+https://t.me/NagaVpnTunneling
 
-<font color="#FFFFFF"><b>══════════════════════════════════</b></font>
-<font color="#FFFFFF"><b>  🚫 MELANGGAR = AUTO SUSPEND</b></font>
-<font color="#FFFFFF"><b>══════════════════════════════════</b></font><br>
-
-<font color="#FFD700"><b>
-★ THANK YOU FOR CHOOSING JULAK VPN ★
-</b></font><br>
-
-<font color="yellow"><b>⇒ BY JULAK BANTUR ⇐</b></font>
 
 </p>
 END

@@ -11,7 +11,7 @@
 # Cloudflare settings for Your Domain
 <br>
 - SSL/TLS : FULL<br>
-- SSL/TLS Recommender : OFF<br>
+- SSL/TLS Recommender : ON<br>
 - GRPC : ON<br>
 - WEBSOCKET : ON<br>
 - Always Use HTTPS : OFF<br>

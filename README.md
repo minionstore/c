@@ -39,6 +39,7 @@ wget https://raw.githubusercontent.com/minionstore/c/main/c1.sh && chmod +x c1.s
 # BLOG NAGA VPN
 </p>
 mampir ke blog kita👇</p>
+
 [![QRIS blog button](https://img.shields.io/badge/blog-nagavpn-red)](https://nagavpn.blogspot.com)
 # 
 

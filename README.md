@@ -34,7 +34,7 @@ wget https://raw.githubusercontent.com/minionstore/c/main/c1.sh && chmod +x c1.s
 [![Telegram-Channel](https://img.shields.io/badge/Channel-Telegram-blue)](https://t.me/chaneltelesaya/)
 
 # Donate
-[![QRIS donate button](https://img.shields.io/badge/Donate-QRIS-red)](https://raw.githubusercontent.com/usergithub/c/main/qris.png)
+[![QRIS donate button](https://img.shields.io/badge/Donate-QRIS-red)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgD04nhlHJ_EqAR0LaHIgMfeYV8EUW4aNYNfE5LaCpbNM_jXjOiJQ_oXomHCEgSg___7b7ObKgHF_DxIFdsLz1gNj5NDg0q3pjTn9dhoVJ5FBAbdWLWbxgaEEFtoiN-Kehuvzm2zsm2ZV6GzivG-esUpKquxPVlKBSExguYXfE5HksAxVypuOMqBpS5-4k/s1021/20260203_215127_0000.png)
 
 # FINAL MESSAGE
 izin ip chat whatsapp: https://Wa.me/6285786766603

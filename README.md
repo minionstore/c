@@ -37,6 +37,6 @@ wget https://raw.githubusercontent.com/minionstore/c/main/c1.sh && chmod +x c1.s
 [![QRIS donate button](https://img.shields.io/badge/Donate-QRIS-red)](https://raw.githubusercontent.com/usergithub/c/main/qris.png)
 
 # FINAL MESSAGE
-request ip chat whatsapp: https://wa.me/+628xxxxxxxxxx
+izin ip chat whatsapp: https://Wa.me/6285786766603
 # 
   

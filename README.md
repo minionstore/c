@@ -44,6 +44,6 @@ mampir ke blog kita👇</p>
 # 
 
 # FINAL MESSAGE
-izin ip chat whatsapp: https://Wa.me/6285786766603
+izin ip/sewa script chat whatsapp: https://Wa.me/6285786766603
 # 
   

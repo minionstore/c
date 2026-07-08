@@ -38,7 +38,7 @@ wget https://raw.githubusercontent.com/minionstore/c/main/c1.sh && chmod +x c1.s
 
 # BLOG NAGA VPN
 mampir ke blog kita👇
-[![QRIS blog button](https://img.shields.io/badge/Donate-QRIS-red)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgD04nhlHJ_EqAR0LaHIgMfeYV8EUW4aNYNfE5LaCpbNM_jXjOiJQ_oXomHCEgSg___7b7ObKgHF_DxIFdsLz1gNj5NDg0q3pjTn9dhoVJ5FBAbdWLWbxgaEEFtoiN-Kehuvzm2zsm2ZV6GzivG-esUpKquxPVlKBSExguYXfE5HksAxVypuOMqBpS5-4k/s1021/20260203_215127_0000.png)
+[![QRIS blog button](https://img.shields.io/badge/blog-nagavpn-red)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgD04nhlHJ_EqAR0LaHIgMfeYV8EUW4aNYNfE5LaCpbNM_jXjOiJQ_oXomHCEgSg___7b7ObKgHF_DxIFdsLz1gNj5NDg0q3pjTn9dhoVJ5FBAbdWLWbxgaEEFtoiN-Kehuvzm2zsm2ZV6GzivG-esUpKquxPVlKBSExguYXfE5HksAxVypuOMqBpS5-4k/s1021/20260203_215127_0000.png)
 # 
 
 # FINAL MESSAGE

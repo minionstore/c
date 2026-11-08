@@ -2,6 +2,7 @@
 # Script Installer VPS
 # Dibuat oleh: Julak Bantur
 # Last Update : 2025
+# Fixed & Rebuilt by Naga VPN
 ###############
 apt update
 apt install curl -y
@@ -743,12 +744,6 @@ PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
 0 0 * * * root /usr/local/sbin/xp
 END
 
-#cat> /etc/cron.d/exp_udp << END
-#SHELL=/bin/sh
-#PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
-#0 9 * * * root /usr/local/sbin/xpudp
-#END
-
 cat> /etc/cron.d/daily_backup << END
 SHELL=/bin/sh
 PATH=/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin
@@ -777,7 +772,6 @@ service cron start >/dev/null 2>&1
 apt autoclean -y >/dev/null 2>&1
 apt -y remove --purge unscd >/dev/null 2>&1
 apt-get -y --purge remove samba* >/dev/null 2>&1
-apt-get -y --purge remove apache2* >/dev/null 2>&1
 apt-get -y --purge remove bind9* >/dev/null 2>&1
 apt-get -y remove sendmail* >/dev/null 2>&1
 apt autoremove -y >/dev/null 2>&1
@@ -788,7 +782,6 @@ chown -R www-data:www-data /var/www/html
 rm -f /root/key.pem
 rm -f /root/cert.pem
 rm -f /root/bbr.sh
-rm -rf /etc/apache2
 
 # installer gotop
 gotop_latest="$(curl -s https://api.github.com/repos/xxxserxxx/gotop/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
@@ -840,38 +833,19 @@ touch /var/log/xray/access.log
 touch /var/log/xray/error.log
 touch /var/log/xray/access2.log
 touch /var/log/xray/error2.log
-# / / Ambil Xray Core Version Terbaru
-latest_version="$(curl -s https://api.github.com/repos/XTLS/Xray-core/releases | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version 1.8.1
 
-    # > Create Service
-    rm -rf /etc/systemd/system/xray.service.d
-    cat >/etc/systemd/system/xray.service <<EOF
-Description=Xray Service
-Documentation=https://github.com
-After=network.target nss-lookup.target
-
-[Service]
-User=www-data
-CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
-AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
-NoNewPrivileges=true
-ExecStart=/usr/local/bin/xray run -config /etc/xray/config.json
-Restart=on-failure
-RestartPreventExitStatus=23
-LimitNPROC=10000
-LimitNOFILE=1000000
-
-[Install]
-WantedBy=multi-user.target
-
-EOF
-
-uuid=$(cat /proc/sys/kernel/random/uuid)
-
-## crt xray
-systemctl stop nginx
+# ==========================================
+# PERBAIKAN CORE XRAY DAN SSL ACME.SH
+# ==========================================
 domain=$(cat /etc/xray/domain)
+
+# Menghapus Apache2 agar port 80 tidak bentrok saat SSL Acme
+systemctl stop apache2 >/dev/null 2>&1
+apt-get remove --purge apache2 -y >/dev/null 2>&1
+systemctl stop nginx >/dev/null 2>&1
+
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
+
 mkdir /root/.acme.sh
 curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
 chmod +x /root/.acme.sh/acme.sh
@@ -879,6 +853,7 @@ chmod +x /root/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
+# ==========================================
 
 # nginx renew ssl
 echo -n '#!/bin/bash
@@ -901,262 +876,8 @@ sed -i 's/xxx/$domain/' /etc/nginx/conf.d/xray.conf
 sed -i 's/xxx/$domain/' /etc/haproxy/haproxy.cfg
 cat /etc/xray/xray.key /etc/xray/xray.crt | tee /etc/haproxy/hap.pem
 
+wget -O /etc/xray/config.json "${jamban}config/xray.conf"
 
-cat > /etc/xray/config.json << END
-{
-  "log" : {
-    "access": "/var/log/xray/access.log",
-    "error": "/var/log/xray/error.log",
-    "loglevel": "warning"
-  },
-  "inbounds": [
-      {
-      "listen": "127.0.0.1",
-      "port": 10000,
-      "protocol": "dokodemo-door",
-      "settings": {
-        "address": "127.0.0.1"
-      },
-      "tag": "api"
-    },
-   {
-     "listen": "127.0.0.1",
-     "port": "10001",
-     "protocol": "vless",
-      "settings": {
-          "decryption":"none",
-            "clients": [
-               {
-                 "id": "${uuid}"                 
-#vless
-             }
-          ]
-       },
-       "streamSettings":{
-         "network": "ws",
-            "wsSettings": {
-                "path": "/vless"
-          }
-        }
-     },
-     {
-     "listen": "127.0.0.1",
-     "port": "10002",
-     "protocol": "vmess",
-      "settings": {
-            "clients": [
-               {
-                 "id": "${uuid}",
-                 "alterId": 0
-#vmess
-             }
-          ]
-       },
-       "streamSettings":{
-         "network": "ws",
-            "wsSettings": {
-                "path": "/vmess"
-          }
-        }
-     },
-    {
-      "listen": "127.0.0.1",
-      "port": "10003",
-      "protocol": "trojan",
-      "settings": {
-          "decryption":"none",		
-           "clients": [
-              {
-                 "password": "${uuid}"
-#trojanws
-              }
-          ],
-         "udp": true
-       },
-       "streamSettings":{
-           "network": "ws",
-           "wsSettings": {
-               "path": "/trojan-ws"
-            }
-         }
-     },
-    {
-         "listen": "127.0.0.1",
-        "port": "10004",
-        "protocol": "shadowsocks",
-        "settings": {
-           "clients": [
-           {
-           "method": "aes-128-gcm",
-          "password": "${uuid}"
-#ssws
-           }
-          ],
-          "network": "tcp,udp"
-       },
-       "streamSettings":{
-          "network": "ws",
-             "wsSettings": {
-               "path": "/ss-ws"
-           }
-        }
-     },	
-      {
-        "listen": "127.0.0.1",
-     "port": "10005",
-        "protocol": "vless",
-        "settings": {
-         "decryption":"none",
-           "clients": [
-             {
-               "id": "${uuid}"
-#vlessgrpc
-             }
-          ]
-       },
-          "streamSettings":{
-             "network": "grpc",
-             "grpcSettings": {
-                "serviceName": "vless-grpc"
-           }
-        }
-     },
-     {
-      "listen": "127.0.0.1",
-     "port": "10006",
-     "protocol": "vmess",
-      "settings": {
-            "clients": [
-               {
-                 "id": "${uuid}",
-                 "alterId": 0
-#vmessgrpc
-             }
-          ]
-       },
-       "streamSettings":{
-         "network": "grpc",
-            "grpcSettings": {
-                "serviceName": "vmess-grpc"
-          }
-        }
-     },
-     {
-        "listen": "127.0.0.1",
-     "port": "10007",
-        "protocol": "trojan",
-        "settings": {
-          "decryption":"none",
-             "clients": [
-               {
-                 "password": "${uuid}"
-#trojangrpc
-               }
-           ]
-        },
-         "streamSettings":{
-         "network": "grpc",
-           "grpcSettings": {
-               "serviceName": "trojan-grpc"
-         }
-      }
-   },
-   {
-    "listen": "127.0.0.1",
-    "port": "10008",
-    "protocol": "shadowsocks",
-    "settings": {
-        "clients": [
-          {
-             "method": "aes-128-gcm",
-             "password": "${uuid}"
-#ssgrpc
-           }
-         ],
-           "network": "tcp,udp"
-      },
-    "streamSettings":{
-     "network": "grpc",
-        "grpcSettings": {
-           "serviceName": "ss-grpc"
-          }
-       }
-    }	
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
-    }
-  ],
-  "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "ip": [
-          "0.0.0.0/8",
-          "10.0.0.0/8",
-          "100.64.0.0/10",
-          "169.254.0.0/16",
-          "172.16.0.0/12",
-          "192.0.0.0/24",
-          "192.0.2.0/24",
-          "192.168.0.0/16",
-          "198.18.0.0/15",
-          "198.51.100.0/24",
-          "203.0.113.0/24",
-          "::1/128",
-          "fc00::/7",
-          "fe80::/10"
-        ],
-        "outboundTag": "blocked"
-      },
-      {
-        "inboundTag": [
-          "api"
-        ],
-        "outboundTag": "api",
-        "type": "field"
-      },
-      {
-        "type": "field",
-        "outboundTag": "blocked",
-        "protocol": [
-          "bittorrent"
-        ]
-      }
-    ]
-  },
-  "stats": {},
-  "api": {
-    "services": [
-      "StatsService"
-    ],
-    "tag": "api"
-  },
-  "policy": {
-    "levels": {
-      "0": {
-        "statsUserDownlink": true,
-        "statsUserUplink": true
-      }
-    },
-    "system": {
-      "statsInboundUplink": true,
-      "statsInboundDownlink": true,
-      "statsOutboundUplink" : true,
-      "statsOutboundDownlink" : true
-    }
-  }
-}
-END
-#rm -rf /etc/systemd/system/xray.service.d
-rm -rf /etc/systemd/system/xray@.service
 cat <<EOF> /etc/systemd/system/xray.service
 Description=Xray Service
 Documentation=https://github.com/xtls
@@ -1347,7 +1068,13 @@ clear
 }
 
 insmenu() {
+# Memastikan up.sh di-download dan menu zip terpasang
 wget -q ${jamban}service/up.sh && chmod +x up.sh && ./up.sh
+cd /usr/bin
+wget -q -O menu "${jamban}service/menu.zip"
+unzip -q menu -d /usr/bin/
+rm -f menu
+chmod +x /usr/bin/*
 clear
 }
 
@@ -1424,8 +1151,6 @@ insmenu
 }
 setup_install
 
-}
-
 # Tentukan nilai baru yang diinginkan untuk fs.file-max
 NEW_FILE_MAX=65535  # Ubah sesuai kebutuhan Anda
 
@@ -1476,7 +1201,7 @@ fi
 fi
 mesg n || true
 clear
-mukung
+menu
 END
 chmod 644 /root/.profile
 if [ -f "/root/log-install.txt" ]; then

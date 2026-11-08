@@ -324,6 +324,37 @@ echo "/bin/false" >> /etc/shells
 echo "/usr/sbin/nologin" >> /etc/shells
 /etc/init.d/dropbear restart
 
+
+# ==========================================
+# Install Core Xray & SSL (PERBAIKAN MISSING CORE)
+# ==========================================
+echo -e "${y}Memulai instalasi Core Xray dari XTLS...${NC}"
+domain=$(cat /root/domain)
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install
+
+# Menarik Config dasar Xray ke direktori /etc/xray
+mkdir -p /etc/xray
+wget -O /etc/xray/config.json "${jamban}config/xray.conf"
+
+# Generate Sertifikat SSL/TLS menggunakan Acme.sh
+apt install socat -y
+# Matikan service bentrok port 80 sementara untuk standalone SSL
+systemctl stop nginx >/dev/null 2>&1
+systemctl stop haproxy >/dev/null 2>&1
+
+curl https://get.acme.sh | sh
+~/.acme.sh/acme.sh --register-account -m "admin@$domain"
+~/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
+~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key --ecc
+
+systemctl start nginx >/dev/null 2>&1
+
+# Sesuaikan kepemilikan file SSL
+chown www-data:www-data /etc/xray/xray.crt
+chown www-data:www-data /etc/xray/xray.key
+# ==========================================
+
+
 # Fix Certificate & Routing HAProxy & Xray (PERBAIKAN UTAMA)
 mkdir -p /etc/haproxy
 mkdir -p /usr/local/etc/xray
